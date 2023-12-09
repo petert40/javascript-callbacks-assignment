@@ -55,6 +55,7 @@ function validateForm (event) {
 let form = document.getElementById("userForm")
 form.addEventListener("submit", validateForm)
 
-//? not sure why this part doesn't work
+//? there is already userForm eventListener defined in tearchJS.js file, so that's the reason causing
+// validateForm function be called twice, and having alert messages displaying twice.
 // let button = document.querySelector(".userForm button")
 // button.addEventListener("click", validateForm)
