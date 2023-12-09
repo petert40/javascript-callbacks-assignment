@@ -23,3 +23,38 @@
 //Hint: When dealing with a form submission that takes an event variable as a parameter, use e.preventDefault()
 //      (or event.preventDefault() depending on the name of the variable) to prevent the page
 //      from refreshing when a form is submitted. Do all your checks after that line.
+
+function validateForm (event) {
+  event.preventDefault()
+
+  let name = document.getElementById("name")
+  if (name.value == '') {
+    alert('Please input name, it cannot be empty!')
+    return false
+  }
+
+  let email = document.getElementById("email")
+  if (!email.value.includes('@')) {
+    alert("please input a proper email!")
+    return false
+  }
+
+  let password = document.getElementById("password")
+  if (password.value == '') {
+    alert('Please input password, it cannot be empty!')
+    return false
+  } else if (password.value.length < 8) {
+    alert("the password must be at least 8 characters!")
+    return false
+  }
+
+  return true
+
+}
+
+let form = document.getElementById("userForm")
+form.addEventListener("submit", validateForm)
+
+//? not sure why this part doesn't work
+// let button = document.querySelector(".userForm button")
+// button.addEventListener("click", validateForm)
